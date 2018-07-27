@@ -25,6 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
     
     var requestWorker : AsyncRequestWorker?
     var fileWorker:FileWorker?
+    let storeFileName:String="store.json"
     
     override func viewDidLoad() {
         super.viewDidLoad()
