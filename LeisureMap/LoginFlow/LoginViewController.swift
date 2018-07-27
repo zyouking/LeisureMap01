@@ -13,7 +13,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
 //        print(responseString)
 //    }
     
+    func fileWorkWriteCompleted(_ sender:FileWorker,fileName:String,tag:Int){
+        let account=txtAccount.text!
+        let password=txtPassword.text!
+        
+        let from = "https://score.azurewebsites.net/api/login/\( account)/\(password)"
+        
+        self.requestWorker?.getResponse(from: from, tag: 1)
+        
+    }
     
+    func fileWorkReadCompleted(_ sender:FileWorker,fileName:String,tag:Int){
+        let account=txtAccount.text!
+        let password=txtPassword.text!
+        
+        let from = "https://score.azurewebsites.net/api/login/\( account)/\(password)"
+        
+        self.requestWorker?.getResponse(from: from, tag: 1)
+    }
 
     @IBOutlet weak var txtAccount: UITextField!
     

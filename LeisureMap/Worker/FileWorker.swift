@@ -9,8 +9,8 @@
 import Foundation
 
 protocol FileWorkerDelegate {
-    func fileWorkWriteComplete(_ sender:FileWorker,fileName:String,tag:Int)
-    func fileWorkReadComplete(_ sender:FileWorker,fileName:String,tag:Int)
+    func fileWorkWriteCompleted(_ sender:FileWorker,fileName:String,tag:Int)
+    func fileWorkReadCompleted(_ sender:FileWorker,fileName:String,tag:Int)
 }
 
 class FileWorker{
@@ -22,7 +22,7 @@ class FileWorker{
             let fileURL=dir.appendingPathComponent(fileName)
             do{
                 try content.write(to: fileURL, atomically: false, encoding: .utf8)
-                self.fileWorkerDelegate?.fileWorkWriteComplete(self, fileName: fileURL.absoluteString, tag: tag)
+                self.fileWorkerDelegate?.fileWorkWriteCompleted(self, fileName: fileURL.absoluteString, tag: tag)
             }
             catch{
                 print(error)
@@ -32,7 +32,17 @@ class FileWorker{
     
     func readFromFile(content:String,fileName:String,tag:Int)->String {
         var result:String=""
-        
+        if let dir=FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+            let fileURL=dir.appendingPathComponent(fileName)
+            do{
+                let content=try String(contentsOf: fileURL, encoding: .utf8)
+                self.fileWorkerDelegate?.fileWorkWriteCompleted(self, fileName:content,tag:tag)
+                result=content
+            }
+            catch{
+                print(error)
+            }
+        }
         return result
         
     }
