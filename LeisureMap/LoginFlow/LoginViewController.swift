@@ -8,20 +8,13 @@
 
 import UIKit
 import SwiftyJSON
-class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDelegate {
-//    func receviedReponse(_ sender: AsyncRequestWorker, responseString: String, tag: Int) {
-//        print(responseString)
-//    }
+
+class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDelegate , FileWorkerDelegate {
     
-    func fileWorkWriteCompleted(_ sender:FileWorker,fileName:String,tag:Int){
-        
-        
-    }
     
-    func fileWorkReadCompleted(_ sender:FileWorker,fileName:String,tag:Int){
-        
-    }
     
+    
+
     
 
     @IBOutlet weak var txtAccount: UITextField!
@@ -31,12 +24,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
     @IBOutlet weak var btnLogin: UIButton!
     
     var requestWorker : AsyncRequestWorker?
+    var fileWorker:FileWorker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         requestWorker = AsyncRequestWorker()
         requestWorker?.reponseDelegate = self
+        
+        fileWorker = FileWorker()
+        fileWorker?.fileWorkerDelegate = self
         print("viewDidLoad")
 
         // Do any additional setup after loading the view.
@@ -180,36 +177,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
         case 3:
 //            print("\(tag):\(responseString)")
             
-            do{
-                if let dataFromString = responseString.data(using: .utf8, allowLossyConversion: false) {
-                    let json = try JSON(data: dataFromString)
-                    for (_ ,subJson):(String, JSON) in json {
-                        // Do something you want
-                        let serviceIndex:Int=subJson["serviceIndex"].intValue
-                        let index:Int=subJson["index"].intValue
-                        let name:String=subJson["name"].stringValue
-                        let location:JSON=subJson["location"]
-                        let imagePath:String=subJson["imagePath"].stringValue
-                          let latitude:Double=subJson["latitude"].doubleValue
-                          let longitude:Double=subJson["longitude"].doubleValue
-                        print("\(index):\(name):latitude:\(latitude)")
-                    }
-                }
-            }catch{
-                print(error)
-            }
+//            do{
+//                if let dataFromString = responseString.data(using: .utf8, allowLossyConversion: false) {
+//                    let json = try JSON(data: dataFromString)
+//                    for (_ ,subJson):(String, JSON) in json {
+//                        // Do something you want
+//                        let serviceIndex:Int=subJson["serviceIndex"].intValue
+//                        let index:Int=subJson["index"].intValue
+//                        let name:String=subJson["name"].stringValue
+//                        let location:JSON=subJson["location"]
+//                        let imagePath:String=subJson["imagePath"].stringValue
+//                          let latitude:Double=subJson["latitude"].doubleValue
+//                          let longitude:Double=subJson["longitude"].doubleValue
+//                        print("\(index):\(name):latitude:\(latitude)")
+//                    }
+//                }
+//            }catch{
+//                print(error)
+//            }
             
+            fileWorker?.writeToFile(content: responseString, fileName: "store.json", tag: 1)
             
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "moveToMasterViewSegue", sender: self)
-            }
             break
         default:
             break
             
         }
         
-        //
 //        let defaults : UserDefaults = UserDefaults.standard
 //
 //        defaults.set(responseString, forKey: "serviceVersion")
@@ -219,6 +213,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
 //        DispatchQueue.main.async {
 //            self.performSegue(withIdentifier: "moveToLoginViewSegue", sender: self)
 //        }
+        
+    }
+    
+    func fileWorkWriteCompleted(_ sender: FileWorker, fileName: String, tag: Int) {
+        
+        print(fileName)
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "moveToMasterViewSegue", sender: self)
+        }
+    }
+    
+    func fileWorkReadCompleted(_ sender: FileWorker, fileName: String, tag: Int) {
         
     }
 
