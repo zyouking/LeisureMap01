@@ -14,6 +14,8 @@
 		AD466DBF210AAA81006B0AA0 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */; };
 		AD466DC1210AAB5E006B0AA0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DC0210AAB5E006B0AA0 /* Store.swift */; };
 		AD466DC7210AC1DA006B0AA0 /* SQLiteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DC6210AC1DA006B0AA0 /* SQLiteWorker.swift */; };
+		AD466DCA210AFFC7006B0AA0 /* ServiceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DC9210AFFC7006B0AA0 /* ServiceCellView.swift */; };
+		AD466DCC210B0903006B0AA0 /* StoreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DCB210B0903006B0AA0 /* StoreCellView.swift */; };
 		AD668A212105D7C40066B0EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD668A202105D7C40066B0EC /* AppDelegate.swift */; };
 		AD668A232105D7C40066B0EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD668A222105D7C40066B0EC /* ViewController.swift */; };
 		AD668A262105D7C40066B0EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD668A242105D7C40066B0EC /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory.swift; sourceTree = "<group>"; };
 		AD466DC0210AAB5E006B0AA0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		AD466DC6210AC1DA006B0AA0 /* SQLiteWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteWorker.swift; sourceTree = "<group>"; };
+		AD466DC9210AFFC7006B0AA0 /* ServiceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellView.swift; sourceTree = "<group>"; };
+		AD466DCB210B0903006B0AA0 /* StoreCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCellView.swift; sourceTree = "<group>"; };
 		AD668A1D2105D7C40066B0EC /* LeisureMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeisureMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD668A202105D7C40066B0EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD668A222105D7C40066B0EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AD466DC8210AFF31006B0AA0 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				AD466DC9210AFFC7006B0AA0 /* ServiceCellView.swift */,
+				AD466DCB210B0903006B0AA0 /* StoreCellView.swift */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
 		AD668A142105D7C40066B0EC = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +239,7 @@
 		AD693E4F2108587D00AC26D3 /* MasterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				AD466DC8210AFF31006B0AA0 /* CellView */,
 				AD693E50210858B800AC26D3 /* MasterViewController.swift */,
 				AD693E52210858D000AC26D3 /* DetailViewController.swift */,
 			);
@@ -470,6 +484,7 @@
 				AD693E51210858B800AC26D3 /* MasterViewController.swift in Sources */,
 				AD466DC1210AAB5E006B0AA0 /* Store.swift in Sources */,
 				AD668A562105DBFE0066B0EC /* LoginViewController.swift in Sources */,
+				AD466DCC210B0903006B0AA0 /* StoreCellView.swift in Sources */,
 				AD466DC7210AC1DA006B0AA0 /* SQLiteWorker.swift in Sources */,
 				AD13DF162109CF2700796BF7 /* FileWorker.swift in Sources */,
 				AD668A502105DB030066B0EC /* SplashViewController.swift in Sources */,
@@ -477,6 +492,7 @@
 				AD668A232105D7C40066B0EC /* ViewController.swift in Sources */,
 				AD668A212105D7C40066B0EC /* AppDelegate.swift in Sources */,
 				AD693E562108590D00AC26D3 /* MapViewController.swift in Sources */,
+				AD466DCA210AFFC7006B0AA0 /* ServiceCellView.swift in Sources */,
 				AD3E90B7210965F800F2519F /* NetWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
