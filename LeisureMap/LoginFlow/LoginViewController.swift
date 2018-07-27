@@ -172,6 +172,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
             self.readStore()
             break
         case 3:
+//            print("\(tag):\(responseString)")
+            
+            do{
+                if let dataFromString = responseString.data(using: .utf8, allowLossyConversion: false) {
+                    let json = try JSON(data: dataFromString)
+                    for (_ ,subJson):(String, JSON) in json {
+                        // Do something you want
+                        let serviceIndex:Int=subJson["serviceIndex"].intValue
+                        let index:Int=subJson["index"].intValue
+                        let name:String=subJson["name"].stringValue
+                        let location:JSON=subJson["location"]
+                        let imagePath:String=subJson["imagePath"].stringValue
+                          let latitude:Double=subJson["latitude"].doubleValue
+                          let longitude:Double=subJson["longitude"].doubleValue
+                        print("\(index):\(name):latitude:\(latitude)")
+                    }
+                }
+            }catch{
+                print(error)
+            }
+            
+            
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "moveToMasterViewSegue", sender: self)
             }
