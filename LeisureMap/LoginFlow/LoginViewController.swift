@@ -14,23 +14,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
 //    }
     
     func fileWorkWriteCompleted(_ sender:FileWorker,fileName:String,tag:Int){
-        let account=txtAccount.text!
-        let password=txtPassword.text!
         
-        let from = "https://score.azurewebsites.net/api/login/\( account)/\(password)"
-        
-        self.requestWorker?.getResponse(from: from, tag: 1)
         
     }
     
     func fileWorkReadCompleted(_ sender:FileWorker,fileName:String,tag:Int){
-        let account=txtAccount.text!
-        let password=txtPassword.text!
         
-        let from = "https://score.azurewebsites.net/api/login/\( account)/\(password)"
-        
-        self.requestWorker?.getResponse(from: from, tag: 1)
     }
+    
+    
 
     @IBOutlet weak var txtAccount: UITextField!
     
@@ -58,6 +50,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
         
         self.requestWorker?.getResponse(from: from, tag: 1)
         
+    }
+    
+    func readServiceCategory() {
+        let from="https://score.azurewebsites.net/api/ServiceCategory"
+        self.requestWorker?.getResponse(from: from, tag: 2)
+    }
+    
+    func readStore()  {
+        let from="https://score.azurewebsites.net/api/store"
+        self.requestWorker?.getResponse(from: from, tag: 3)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,7 +146,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
     // MARK: AsyncResponseDelegate
     
     func receviedReponse(_ sender: AsyncRequestWorker, responseString: String, tag: Int) {
-        print(responseString)
+        print("\(tag):\(responseString)")
+        
+        switch tag {
+        case 1:
+            self.readServiceCategory()
+            break
+        case 2:
+            self.readStore()
+            break
+        case 3:
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "moveToMasterViewSegue", sender: self)
+            }
+            break
+        default:
+            break
+            
+        }
         
         //
 //        let defaults : UserDefaults = UserDefaults.standard
