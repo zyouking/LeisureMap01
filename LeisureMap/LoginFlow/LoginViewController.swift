@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDelegate {
 //    func receviedReponse(_ sender: AsyncRequestWorker, responseString: String, tag: Int) {
 //        print(responseString)
@@ -153,6 +153,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
             self.readServiceCategory()
             break
         case 2:
+            do{
+                if let dataFromString = responseString.data(using: .utf8, allowLossyConversion: false) {
+                    let json = try JSON(data: dataFromString)
+                    for (_ ,subJson):(String, JSON) in json {
+                        // Do something you want
+                        let index:Int=subJson["index"].intValue
+                        let name:String=subJson["name"].stringValue
+                        let imagePath:String=subJson["imagePath"].stringValue
+                        print("\(index):\(name)")
+                    }
+                }
+            }catch{
+                print(error)
+            }
+            
+            
             self.readStore()
             break
         case 3:

@@ -11,6 +11,8 @@
 		3346C59265546026FB819604 /* Pods_LeisureMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8B0245B6CC28C8CBA0F0AA /* Pods_LeisureMapUITests.framework */; };
 		AD13DF162109CF2700796BF7 /* FileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD13DF152109CF2700796BF7 /* FileWorker.swift */; };
 		AD3E90B7210965F800F2519F /* NetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3E90B6210965F800F2519F /* NetWorker.swift */; };
+		AD466DBF210AAA81006B0AA0 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */; };
+		AD466DC1210AAB5E006B0AA0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DC0210AAB5E006B0AA0 /* Store.swift */; };
 		AD668A212105D7C40066B0EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD668A202105D7C40066B0EC /* AppDelegate.swift */; };
 		AD668A232105D7C40066B0EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD668A222105D7C40066B0EC /* ViewController.swift */; };
 		AD668A262105D7C40066B0EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD668A242105D7C40066B0EC /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		94581ABFA0EBD66636B24EB4 /* Pods-LeisureMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeisureMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeisureMapTests/Pods-LeisureMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD13DF152109CF2700796BF7 /* FileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWorker.swift; sourceTree = "<group>"; };
 		AD3E90B6210965F800F2519F /* NetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorker.swift; sourceTree = "<group>"; };
+		AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory.swift; sourceTree = "<group>"; };
+		AD466DC0210AAB5E006B0AA0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		AD668A1D2105D7C40066B0EC /* LeisureMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeisureMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD668A202105D7C40066B0EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD668A222105D7C40066B0EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
+		AD466DBD210AA9E6006B0AA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */,
+				AD466DC0210AAB5E006B0AA0 /* Store.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AD668A142105D7C40066B0EC = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 		AD668A1F2105D7C40066B0EC /* LeisureMap */ = {
 			isa = PBXGroup;
 			children = (
+				AD466DBD210AA9E6006B0AA0 /* Model */,
 				AD3E90B32109613700F2519F /* Worker */,
 				AD693E572108591100AC26D3 /* NoteFlow */,
 				AD693E54210858D700AC26D3 /* MapFlow */,
@@ -449,7 +463,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD693E592108592D00AC26D3 /* NoteViewController.swift in Sources */,
+				AD466DBF210AAA81006B0AA0 /* ServiceCategory.swift in Sources */,
 				AD693E51210858B800AC26D3 /* MasterViewController.swift in Sources */,
+				AD466DC1210AAB5E006B0AA0 /* Store.swift in Sources */,
 				AD668A562105DBFE0066B0EC /* LoginViewController.swift in Sources */,
 				AD13DF162109CF2700796BF7 /* FileWorker.swift in Sources */,
 				AD668A502105DB030066B0EC /* SplashViewController.swift in Sources */,
