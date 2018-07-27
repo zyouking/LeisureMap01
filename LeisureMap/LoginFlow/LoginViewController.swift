@@ -11,11 +11,6 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDelegate , FileWorkerDelegate {
     
-    
-    
-    
-
-    
 
     @IBOutlet weak var txtAccount: UITextField!
     
