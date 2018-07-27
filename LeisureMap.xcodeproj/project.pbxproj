@@ -13,6 +13,7 @@
 		AD3E90B7210965F800F2519F /* NetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3E90B6210965F800F2519F /* NetWorker.swift */; };
 		AD466DBF210AAA81006B0AA0 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */; };
 		AD466DC1210AAB5E006B0AA0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DC0210AAB5E006B0AA0 /* Store.swift */; };
+		AD466DC7210AC1DA006B0AA0 /* SQLiteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD466DC6210AC1DA006B0AA0 /* SQLiteWorker.swift */; };
 		AD668A212105D7C40066B0EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD668A202105D7C40066B0EC /* AppDelegate.swift */; };
 		AD668A232105D7C40066B0EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD668A222105D7C40066B0EC /* ViewController.swift */; };
 		AD668A262105D7C40066B0EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD668A242105D7C40066B0EC /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		AD3E90B6210965F800F2519F /* NetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorker.swift; sourceTree = "<group>"; };
 		AD466DBE210AAA81006B0AA0 /* ServiceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory.swift; sourceTree = "<group>"; };
 		AD466DC0210AAB5E006B0AA0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		AD466DC6210AC1DA006B0AA0 /* SQLiteWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteWorker.swift; sourceTree = "<group>"; };
 		AD668A1D2105D7C40066B0EC /* LeisureMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeisureMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD668A202105D7C40066B0EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD668A222105D7C40066B0EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		AD3E90B32109613700F2519F /* Worker */ = {
 			isa = PBXGroup;
 			children = (
+				AD466DC6210AC1DA006B0AA0 /* SQLiteWorker.swift */,
 				AD3E90B6210965F800F2519F /* NetWorker.swift */,
 				AD13DF152109CF2700796BF7 /* FileWorker.swift */,
 			);
@@ -467,6 +470,7 @@
 				AD693E51210858B800AC26D3 /* MasterViewController.swift in Sources */,
 				AD466DC1210AAB5E006B0AA0 /* Store.swift in Sources */,
 				AD668A562105DBFE0066B0EC /* LoginViewController.swift in Sources */,
+				AD466DC7210AC1DA006B0AA0 /* SQLiteWorker.swift in Sources */,
 				AD13DF162109CF2700796BF7 /* FileWorker.swift in Sources */,
 				AD668A502105DB030066B0EC /* SplashViewController.swift in Sources */,
 				AD693E53210858D000AC26D3 /* DetailViewController.swift in Sources */,

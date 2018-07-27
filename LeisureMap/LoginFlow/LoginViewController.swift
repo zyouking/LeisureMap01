@@ -156,13 +156,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate,AsyncReponseDel
             do{
                 if let dataFromString = responseString.data(using: .utf8, allowLossyConversion: false) {
                     let json = try JSON(data: dataFromString)
+                    let sqliteContext=SQLiteWorker()
+                    sqliteContext.createDatabase()
+                    sqliteContext.clearAll()
                     for (_ ,subJson):(String, JSON) in json {
                         // Do something you want
-                        let index:Int=subJson["index"].intValue
+//                        let index:Int=subJson["index"].intValue
                         let name:String=subJson["name"].stringValue
                         let imagePath:String=subJson["imagePath"].stringValue
-                        print("\(index):\(name)")
+                        sqliteContext.insertData(_name: name, _imagepath: imagePath)
+//                        print("\(index):\(name)")
                     }
+                    let categories=sqliteContext.readData()
+                    print(categories)
                 }
             }catch{
                 print(error)
