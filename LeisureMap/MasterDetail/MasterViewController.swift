@@ -8,7 +8,19 @@
 
 import UIKit
 import SwiftyJSON
-class MasterViewController: UIViewController,FileWorkerDelegate {
+class MasterViewController: UIViewController,FileWorkerDelegate,UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let category=categories[indexPath.row]
+        let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCellView", for: indexPath) as! ServiceCellView
+        cell.updateContent(service: category)
+        return cell
+    }
+    
     
     var categories:[ServiceCategory]=[]
     var stores:[Store]=[]
@@ -46,9 +58,9 @@ class MasterViewController: UIViewController,FileWorkerDelegate {
                                     let location:JSON=subJson["location"]
                                     let address:String=location["name"].stringValue
                                     let imagePath:String=subJson["imagePath"].stringValue
-                                      let latitude:Double=subJson["latitude"].doubleValue
-                                      let longitude:Double=subJson["longitude"].doubleValue
-//                                    print("\(index):\(name):latitude:\(latitude)")
+                                    let latitude:Double=subJson["latitude"].doubleValue
+                                    let longitude:Double=subJson["longitude"].doubleValue
+//                                  print("\(index):\(name):latitude:\(latitude)")
                                     store.ServiceIndex=serviceIndex
                                     store.Name=name
                                     store.Index=index
@@ -63,9 +75,12 @@ class MasterViewController: UIViewController,FileWorkerDelegate {
                         }catch{
                             print(error)
                         }
+      
         
 
         // Do any additional setup after loading the view.
+        
+        displayStores = displayStores + stores
     }
     
 
