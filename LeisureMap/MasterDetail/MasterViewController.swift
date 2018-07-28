@@ -27,6 +27,11 @@ class MasterViewController: UIViewController,FileWorkerDelegate,UICollectionView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated:true)
         let store=displayStores[indexPath.row]
+        self.selectedStore=store
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "moveToDetailViewSegue", sender: self)
+        }
     }
     
     
@@ -124,12 +129,18 @@ class MasterViewController: UIViewController,FileWorkerDelegate,UICollectionView
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "moveToDetailViewSegue":
+            let viewController=segue.destination as! DetailViewController
+            viewController.selectedStore=self.selectedStore
+            break
+        default:
+            break
+        }
     }
-    */
+ 
     
     //MARK
     func fileWorkWriteCompleted(_ sender: FileWorker, fileName: String, tag: Int) {
