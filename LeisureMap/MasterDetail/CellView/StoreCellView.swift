@@ -25,8 +25,8 @@ class StoreCellView: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateContent(service:ServiceCategory) -> Void {
-        lbName.text=service.Name
+    func updateContent(store:Store) -> Void {
+        lbName.text=store.Name
     }
 
 }

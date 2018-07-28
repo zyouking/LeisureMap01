@@ -246,6 +246,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uTI-LH-Txx" id="mXm-R8-oNR"/>
+                                    <outlet property="delegate" destination="uTI-LH-Txx" id="Ait-vJ-tUX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
