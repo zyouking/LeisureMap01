@@ -9,6 +9,10 @@
 import UIKit
 import SwiftyJSON
 class MasterViewController: UIViewController,FileWorkerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    @IBOutlet weak var storeTable: UITableView!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayStores.count
     }
@@ -20,9 +24,31 @@ class MasterViewController: UIViewController,FileWorkerDelegate,UICollectionView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated:true)
+        let store=displayStores[indexPath.row]
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let category=categories[indexPath.row]
+        displayStores.removeAll()
+        for store in stores{
+            let idx:Int=category.Index-1
+            if(store.ServiceIndex==idx){
+                displayStores.append(store)
+            }
+            
+        }
+        
+        DispatchQueue.main.async {
+            self.storeTable.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

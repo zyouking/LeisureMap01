@@ -267,6 +267,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="lSm-pT-zB6"/>
                     <connections>
+                        <outlet property="storeTable" destination="F9X-Fb-eS2" id="NQS-rN-kFV"/>
                         <segue destination="cie-94-BaI" kind="show" identifier="moveToDetailViewSegue" id="GM7-lW-jjx"/>
                     </connections>
                 </viewController>
