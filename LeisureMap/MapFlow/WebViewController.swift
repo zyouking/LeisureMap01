@@ -70,6 +70,28 @@ class WebViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,WKSc
     
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         
+        var txt:UITextField?
+        let alert = UIAlertController(title: prompt, message: "Input Text", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: {
+            (textTextField:UITextField)
+            in
+            textTextField.text=defaultText
+            txt=textTextField
+        })
+        
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
+            (act:UIAlertAction)
+            in
+            print("\(String(describing:txt?.text))")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {
+            (act:UIAlertAction)
+            in
+            if let input=alert.textFields?.first?.text{
+                completionHandler(input)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
 
