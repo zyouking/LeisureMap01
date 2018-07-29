@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "A5w-y5-qrS"; */
+"A5w-y5-qrS.text" = "Label";
+
+/* Class = "UILabel"; text = "version"; ObjectID = "BvX-M2-PLu"; */
+"BvX-M2-PLu.text" = "version";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Djb-nk-mnv"; */
+"Djb-nk-mnv.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Web"; ObjectID = "OEa-5Q-Lpw"; */
+"OEa-5Q-Lpw.normalTitle" = "Web";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aXP-Q5-fOi"; */
+"aXP-Q5-fOi.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Map"; ObjectID = "qCy-K3-o2U"; */
+"qCy-K3-o2U.normalTitle" = "Map";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "t46-C2-51a"; */
+"t46-C2-51a.normalTitle" = "Button";
