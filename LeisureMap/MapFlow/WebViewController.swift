@@ -11,7 +11,13 @@ import WebKit
 private let reuseIdentifier = "Cell"
 
 class WebViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler {
+    
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        
+        if(message.name=="callbackHandler"){
+            print("\(message.body)")
+        }
         
     }
     
@@ -49,8 +55,25 @@ class WebViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,WKSc
         let html:String="<html><body><button onclick='query()'>Prompt</button><br /><button type='button' onclick='msg()' text='Hi'>Just Alert Hi</button><br /><button type='button' onclick='callNativeApp()' text='Send Message To Native App'>Send Message To Native App</button><p id='demo'></p><script>function query() { var os = prompt('你現在用什麼作業系統', 'iOS'); if (os != null) { document.getElementById('demo').innerHTML = os + ' is best operation syste, in the world';return os;}}function getelement(){return 'value from javascript function';}function msg(){alert('Hi !');}function callNativeApp(){webkit.messageHandlers.callbackHandler.postMessage('call native from javascript');}</script></body></html>"
         
         webView.loadHTMLString(html,baseURL:nil)
+        
+        
 
     }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        print("finished")
+        webView.evaluateJavaScript("getelement();", completionHandler: {
+            (any,error)
+            in
+            if nil==error{
+                print("any:\(String(describing:any))")
+
+            }else{
+                print("error:\(String(describing:error))")
+            }
+        })
+    }
+    
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
